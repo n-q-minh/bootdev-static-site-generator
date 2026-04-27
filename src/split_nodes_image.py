@@ -17,7 +17,7 @@ def split_nodes_image(old_nodes: list[TextNode]):
 
 if __name__ == '__main__':
     pattern = r'!\[(?P<image_text>[^\(]*)\]\((?P<image_url>[^\[]*)\)'
-    string = 'This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)'
+    string = 'This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and ![another image](https://www.boot.dev/lessons/21db95df-68e9-4f10-9c76-16142abba580) and a [link](https://boot.dev)'
     
     result = []
     previous_end = 0
