@@ -24,11 +24,15 @@ if __name__ == '__main__':
 
     for m in re.finditer(pattern, string):
         if m.start() > previous_end:
-            result.append({"type": "text", "content": string[previous_end:m.start()]})
-        result.append({"type": "image", **m.groupdict()})
+            result.append(TextNode(string[previous_end:m.start()], TextType.PLAIN))
+            # result.append({"type": "text", "content": string[previous_end:m.start()]})
+        result.append(TextNode(m.group('image_text'), TextType.IMAGE, m.group('image_url')))
+        # result.append({"type": "image", **m.groupdict()})
         previous_end = m.end()
     
     if previous_end < len(string):
-        result.append({"type": "text", "content": string[previous_end:]})
+        result.append(TextNode(string[previous_end:], TextType.PLAIN))
+        # result.append({"type": "text", "content": string[previous_end:]})
 
-    print(result)
+    for item in result:
+        print(item)
