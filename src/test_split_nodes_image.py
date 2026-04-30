@@ -53,9 +53,3 @@ class TestSplitNodesImage(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    '''
-    pattern = r'(?P<plain_text>.*?)!\[(?P<image_text>[^\(]*)\]\((?P<image_url>[^\[]*)\)'
-    matches = re.finditer(pattern, string)
-    for m in matches:
-        print(m.group('plain_text'), m.group('image_text'), m.group('image_url')) 
-    '''
