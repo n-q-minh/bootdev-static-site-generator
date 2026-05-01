@@ -1,6 +1,7 @@
 import re
 from textnode import TextType, TextNode
 
+
 '''
 def split_nodes_link(old_nodes: list[TextNode]):
     pattern = r'(?P<plain_text>.*?)(?<!!)\[(?P<link_text>[^\(]*)\]\((?P<link_url>[^\[]*)\)'
@@ -33,10 +34,3 @@ def split_nodes_link(old_nodes: list[TextNode]):
         if previous_end < len(string):
             new_nodes.append(TextNode(string[previous_end:], TextType.PLAIN))
     return new_nodes
-
-
-if __name__ == '__main__':
-    string = 'This is **text** with an _italic_ word and a `code block` and some [link](https://www.reddit.com) an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and another [link](https://boot.dev)'
-    result = split_nodes_link([TextNode(string, TextType.PLAIN)])
-    for r in result:
-        print(r)
